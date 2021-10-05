@@ -18,8 +18,22 @@ code {
   width: 600px;
 }
 
-.rm{
+.list{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: .5rem;
+}
+
+.rm {
   background:red;
   border-radius: 50%;
   color: white;
+}
+
+.done{
+  text-decoration: line-through;
 }
