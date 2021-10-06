@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import TodoList from "./Todo/TodoList";
 
 function App() {
-    const [todos, setTodos] = React.useState ([
-        {id:1, completed:false, title: 'Купить хлеб'},
-        {id:2, completed:true, title: 'Купить молоко'},
-        {id:3, completed:false, title: 'Купить масло'},
-    ])
+    const [todos, setTodos] = React.useState ([])
+
+    useEffect(()=>{
+        fetch('https://jsonplaceholder.typicode.com/todos/?_limit=5')
+            .then(response => response.json())
+            .then(todos => {
+                setTodos(todos)
+            })
+    },[]);
 
     function toggleTodo(id){
         const changedTodos = todos.map(item => {
@@ -20,7 +24,7 @@ function App() {
 
     return(
         <div className='wrapper'>
-            <h1>To Do List:</h1>
+            <h1 className='header'>To Do List:</h1>
             <TodoList todos={todos} onToggle={toggleTodo}/>
         </div>
     )

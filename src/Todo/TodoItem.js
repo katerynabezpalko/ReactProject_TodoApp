@@ -1,13 +1,8 @@
 import React from 'react';
 
 function TodoItem(props) {
-    const styles = {
-      input:{
-          marginRight:'1rem'
-      }
-    }
 
-    const classes = []
+    const classes = [ ]
     if (props.item.completed === true) {
         classes.push('done')
     }
@@ -16,7 +11,7 @@ function TodoItem(props) {
         <li className='list'>
             <span className={classes.join(' ')}>
                 <input type= 'checkbox'
-                       style={styles.input}
+                       className='input'
                        onChange={() => props.onChange(props.item.id)}
                        checked={props.item.completed}
                 />
