@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react';
-import TodoList from "./Todo/TodoList";
+import TodoList from './Todo/TodoList';
+import Context from '../src/context';
+import AddTodo from './Todo/AddTodo';
 
 function App() {
     const [todos, setTodos] = React.useState ([])
@@ -22,11 +24,30 @@ function App() {
         setTodos(changedTodos)
     }
 
+    function removeItem(id){
+        setTodos(todos.filter(item => item.id !== id))
+        }
+
+    function addTodo(value) {
+
+        const newTodos = todos.concat([
+            {
+                title: value,
+                id: Date.now(),
+                completed:false,
+            }
+            ])
+        setTodos(newTodos)
+    }
+
     return(
-        <div className='wrapper'>
-            <h1 className='header'>To Do List:</h1>
-            <TodoList todos={todos} onToggle={toggleTodo}/>
-        </div>
+        <Context.Provider value = {{ removeItem }}>
+            <div className='wrapper'>
+                <h1 className='header'>To Do List:</h1>
+                <AddTodo onCreate={addTodo}/>
+                <TodoList todos={todos} onToggle={toggleTodo}/>
+            </div>
+        </Context.Provider>
     )
 }
 
