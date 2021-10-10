@@ -10,8 +10,12 @@ function AddTodo({onCreate}){
     }
 
     return(
-        <form onSubmit={submitHandler}>
-            <input value={value} onChange={(event) => setValue(event.target.value)}/>
+        <form onSubmit={submitHandler} className='form'>
+            <input
+                value={value}
+                onChange={(event) => setValue(event.target.value)}
+                className='form_input'
+            />
             <button type='submit' className='button'> Add item</button>
         </form>
     )

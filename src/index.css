@@ -51,6 +51,28 @@ code {
   padding:0;
 }
 
-.button{
+.form_input {
+  height: 3px;
+  outline: none;
+  padding: 20px;
+  border: none;
+  border-radius: 5000px;
+  box-shadow: 1px 1px 3px #56593D;
+}
 
+.button {
+  margin-left: 20px;
+  background: #56593D;
+  outline: none;
+  padding: 15px 20px;
+  border: none;
+  box-shadow: 1px 1px 3px grey;
+  color: white;
+  border-radius: 19px;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.button:hover{
+  box-shadow: 3px 3px 5px grey;
 }
